@@ -26,7 +26,7 @@ fn main() {
     let mut f2 = 1;
     let mut f3 = 1;
 
-    for _i in (1..n).rev() {
+    for _i in 1..n {
         f3 = f1 + f2;
         f1 = f2;
         f2 = f3;
