@@ -91,4 +91,31 @@ fn main() {
     fn remove_fancy_hat() {}
     fn move_player(num_spaces: u8) {}
     fn reroll() {}
+
+    let config_max = Some(3u8);
+    match config_max {
+        Some(max) => println!("The maximum is configured to be {max}"),
+        _ => (),
+    }
+
+    if let Some(max) = config_max {
+        println!("The maximum is configured to be {max}");
+    }
+
+    let coin = Coin1::Quarter(UsState::Alabama);
+
+    let mut count = 0;
+
+    match coin {
+        Coin1::Quarter(state) => println!("State quarter from {state:?}!"),
+        _ => count += 1,
+    }
+
+    let coin = Coin1::Quarter(UsState::Alaska);
+
+    if let Coin1::Quarter(state) = coin {
+        println!("State quarter from {state:?}!");
+    } else {
+        count += 1;
+    }
 }
