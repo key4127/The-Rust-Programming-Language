@@ -1,0 +1,1 @@
+E:\The\ Rust\ Programming\ Language\7\ managing\ growing\ projects\restaurant\target\debug\restaurant.exe: E:\The\ Rust\ Programming\ Language\7\ managing\ growing\ projects\restaurant\src\lib.rs E:\The\ Rust\ Programming\ Language\7\ managing\ growing\ projects\restaurant\src\main.rs

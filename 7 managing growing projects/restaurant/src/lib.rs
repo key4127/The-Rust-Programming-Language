@@ -1,3 +1,5 @@
+// 7.3
+
 mod front_of_house {
     pub mod hosting {
         pub fn add_to_waitlist() {}
@@ -46,7 +48,24 @@ mod back_of_house {
     }
 }
 
+
+// 7.4
+
+// shortcut in particular scope
+use crate::front_of_house::hosting;
+
+mod customer {
+    use crate::front_of_house::hosting;
+
+    pub fn eat_at_restaurant () {
+        hosting::add_to_waitlist();
+    }
+}
+
 pub fn eat_at_restaurant() {
+
+    // 7.3
+
     // Absolute path
     crate::front_of_house::hosting::add_to_waitlist();
 
@@ -63,4 +82,58 @@ pub fn eat_at_restaurant() {
 
     let order1 = back_of_house::Appetizer::Soup;
     let order2 = back_of_house::Appetizer::Salad;
+
+
+    // 7.4
+
+    hosting::add_to_waitlist();
 }
+
+// specify parent modules to avoid duplicate name
+
+/*
+use std::fmt;
+use std::io;
+
+fn function1() -> fmt::Result {
+    Ok(())
+}
+
+fn function2() -> io::Result<()> {
+    Ok(())
+}
+*/
+
+// provide new name
+
+use std::fmt::Result;
+use std::io::Result as IoResult;
+
+fn function1() -> Result {
+    Ok(())
+}
+
+fn function2() -> IoResult<()> {
+    Ok(())
+}
+
+// pub use
+
+/*
+pub use crate::front_of_house::hosting;
+
+mod customers {
+    pub fn eat() {
+        // not crate::front_of_house::hosting
+        crate::hosting::add_to_waitlist();
+    }
+}
+*/
+
+// other syntax
+
+/*
+use std::{cmp::Ordering, io};
+use std::io::{self, Write};
+use std::collections::*;
+*/
